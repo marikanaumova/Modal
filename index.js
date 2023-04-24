@@ -1,17 +1,24 @@
 const modal = $.modal({
-    title: 'Modalka',
+    title: 'Modal is working',
     closable: true,
     content: `
-       <h4>Modal is working</h4>
-       <p>Lorem ipsum dolor sit.</p>
+       <h4>Some text</h4>
+       <p>Text</p>
     `,
     width: '400px',
     footerButtons: [
         {text: 'OK', type: 'primary', handler() {
-            console.log('Primary btn clicked')
+                console.log('OK')
+                modal.close()
             }},
         {text: 'Cancel', type: 'danger', handler() {
-                console.log('Danger btn clicked')
+                console.log('Cancel')
+                modal.close()
             }},
     ]
 })
+
+
+
+
+

@@ -15,7 +15,7 @@ function _createModalFooter(buttons = []) {
         const $btn = document.createElement('button')
         $btn.textContent = btn.text
         $btn.classList.add('btn')
-        $btn.classList.add(`btn-${btn-type || 'secondary'}`)
+        $btn.classList.add(`btn-${btn.type || 'secondary'}`)
         $btn.onclick = btn.handler || noop
 
         wrap.appendChild($btn)
@@ -35,7 +35,7 @@ function _createModal(options) {
                     <span class="modal-title">${options.title || 'Окно'}</span>
                     ${options.closable ? `<span class="modal-close" data-close="true">&times;</span>` : ''}
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" data-content>
                     ${options.content || ''}
                 </div>
             </div> 
@@ -46,6 +46,11 @@ function _createModal(options) {
     document.body.appendChild(modal)
     return modal
 }
+
+const openBtn = document.getElementById('open-btn')
+openBtn.addEventListener('click', function () {
+    modal.open()
+})
 
 $.modal = function (options) {
     const ANIMATION_SPEED = 200
